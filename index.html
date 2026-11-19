@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 문자 인코딩: 한글이 깨지지 않도록 설정 -->
+  <meta charset="UTF-8">
+  <!-- 모바일 화면 크기에 맞춰 보이도록 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>허은교 | 자기소개</title>
+  <!-- 스타일 파일 연결 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== 상단 네비게이션 ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">은교</a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#goals">Goals</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 1. Hero Section ===== -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <!-- 어두운 붉은 3D 배경 패널 (왼쪽 글, 오른쪽 3D 형태) -->
+        <div class="hero-panel">
+          <!-- 장식용 배경 이미지: 글 내용이 없으므로 alt는 비워 둡니다 -->
+          <img class="hero-bg" src="images/hero-background.svg" alt="">
+          <div class="hero-overlay"></div>
+
+          <div class="hero-content">
+            <p class="eyebrow">프론트엔드 개발 공부 중</p>
+            <h1>안녕하세요, <span class="accent">허은교</span>입니다!</h1>
+            <p class="lead">프론트엔드 개발을 배우며 나만의 웹을 만들어 가고 있어요.</p>
+            <div class="btn-group">
+              <a href="#about" class="btn btn-primary">자세히 보기</a>
+              <a href="#goals" class="btn btn-outline">목표 보기</a>
+            </div>
+          </div>
+
+          <!-- 프로필 카드: 사진을 바꾸려면 src 값만 바꾸면 됩니다 (예: images/profile.jpg) -->
+          <div class="profile-card">
+            <img class="profile-avatar" src="images/profile.svg" alt="허은교 프로필 사진 (임시 이미지)">
+            <div>
+              <p class="profile-name">허은교</p>
+              <p class="profile-role">디지털콘텐츠디자인 전공</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. About Me (이미지 왼쪽 · 글 오른쪽) ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <p class="section-label">01</p>
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-grid">
+          <figure class="about-figure">
+            <img class="rounded-img" src="images/about-visual.svg" alt="붉은 곡선 형태의 3D 추상 이미지">
+          </figure>
+
+          <div class="about-text">
+            <ul class="tag-list">
+              <li>디지털콘텐츠디자인 전공</li>
+              <li>현재 프론트엔드 개발 공부 중</li>
+            </ul>
+            <p>
+              디자인을 공부하면서 사용자가 편하게 쓰는 화면에 관심을 갖게 되었어요.
+              지금은 그 화면을 직접 코드로 만드는 프론트엔드 개발을 배우고 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. My Interests (카드 3개 · 위에 이미지) ===== -->
+    <section id="interests" class="section">
+      <div class="container">
+        <p class="section-label">02</p>
+        <h2 class="section-title">My Interests</h2>
+
+        <div class="card-grid">
+          <article class="card">
+            <img class="card-img" src="images/interest-01.svg" alt="청록색 곡선 추상 이미지">
+            <div class="card-body">
+              <h3>프론트엔드 개발</h3>
+              <p>화면이 동작하도록 만드는 코드를 배우는 것이 즐거워요.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img" src="images/interest-02.svg" alt="파란색 원형 추상 이미지">
+            <div class="card-body">
+              <h3>UX/UI 디자인</h3>
+              <p>보기 좋고 쓰기 편한 화면에 대해 자주 고민해요.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img" src="images/interest-03.svg" alt="연보라색 부드러운 추상 이미지">
+            <div class="card-body">
+              <h3>영어 공부와 독서</h3>
+              <p>영어로 된 자료와 책을 읽으며 시야를 넓히고 있어요.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. My Goals (이미지 오른쪽 · 목록 왼쪽) ===== -->
+    <section id="goals" class="section">
+      <div class="container goal-grid">
+        <div class="goal-text">
+          <p class="section-label">03</p>
+          <h2 class="section-title">My Goals</h2>
+
+          <ul class="goal-list">
+            <li>
+              <span class="goal-num">01</span>
+              <p>프론트엔드 개발 실력 향상</p>
+            </li>
+            <li>
+              <span class="goal-num">02</span>
+              <p>나만의 웹 서비스를 직접 만들어 보기</p>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="goal-figure">
+          <img class="rounded-img" src="images/extra-visual-03-4x3.svg" alt="분홍색 원형 추상 이미지">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 푸터 ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 허은교. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 스크롤에 따라 네비게이션을 강조하는 스크립트 -->
+  <script src="js/script.js"></script>
+</body>
+</html>

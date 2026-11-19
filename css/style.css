@@ -1,0 +1,559 @@
+/* ==========================================================
+   0. 폰트 (Pretendard) — 프로젝트의 fonts 폴더에서 불러옵니다
+   ========================================================== */
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/Pretendard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/Pretendard-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/Pretendard-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ==========================================================
+   1. 디자인 토큰 (색·간격은 여기서만 관리합니다)
+   ※ 지정된 팔레트 밖의 색은 사용하지 않습니다.
+   ========================================================== */
+:root {
+  /* Primary (Red) */
+  --red-900: #B71C1C;
+  --red-800: #C62828;
+  --red-700: #D32F2F;
+  --red-600: #E53935;
+  --red-500: #E35141;
+  --red-400: #EF5350;
+  --red-300: #E57373;
+  --red-200: #EF9A9A;
+  --red-100: #FFCDD2;
+  --red-50:  #FFEBEE;
+
+  /* Text */
+  --text-main: #111111;
+  --text-white: #FFFFFF;
+  --text-sub: #505050;
+  --text-second: #767676;
+  --text-disabled: #999999;
+
+  /* 용도별 이름 (실제 색은 위 팔레트 값) */
+  --color-bg: var(--text-white);
+  --color-accent: var(--red-700);
+  --color-accent-hover: var(--red-800);
+
+  /* 간격 */
+  --section-space: 120px;   /* 섹션 위아래 여백 */
+  --nav-height: 72px;       /* 네비게이션 높이 */
+  --radius-xl: 32px;        /* 히어로 패널 */
+  --radius-lg: 24px;        /* 큰 카드, 이미지 */
+  --radius-md: 16px;        /* 작은 요소 */
+}
+
+/* ==========================================================
+   2. 기본 설정
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--text-main);
+  font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  word-break: keep-all;     /* 한글 단어가 중간에서 끊기지 않도록 */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* 가로 폭을 제한하고 좌우 여백을 주는 공통 상자 */
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 이미지를 둥글게 자르는 공통 스타일 */
+.rounded-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+/* ==========================================================
+   3. 상단 네비게이션
+   ========================================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: rgba(255, 255, 255, 0.96);
+  z-index: 10;
+}
+
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {       /* 현재 섹션 강조 (js/script.js가 추가) */
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ==========================================================
+   4. 공통 섹션 & 제목
+   ========================================================== */
+.section {
+  padding-top: var(--section-space);
+  scroll-margin-top: var(--nav-height);
+}
+
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+}
+
+/* ==========================================================
+   5. 버튼
+   ========================================================== */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* 어두운 배경 위의 흰색 버튼 */
+.btn-primary {
+  background-color: var(--text-white);
+  color: var(--red-900);
+}
+
+.btn-primary:hover {
+  background-color: var(--red-50);
+}
+
+/* 흰색 테두리 버튼 */
+.btn-outline {
+  border: 1.5px solid var(--text-white);
+  color: var(--text-white);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================
+   6. Hero Section (어두운 붉은 3D 배경 패널)
+   ========================================================== */
+.hero {
+  padding-top: calc(var(--nav-height) + 24px);
+  padding-bottom: 0;
+}
+
+.hero-panel {
+  position: relative;
+  min-height: 600px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;         /* 배경 이미지가 모서리 밖으로 나가지 않도록 */
+  display: flex;
+  align-items: center;
+  padding: 72px 64px;
+  background-color: var(--red-900);   /* 이미지가 불러와지기 전 배경색 */
+}
+
+/* 배경 3D 이미지: 패널 전체를 채움 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 왼쪽 글자 영역의 명암을 높여 글씨가 잘 보이게 함 (#111111을 투명도로만 조절) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 17, 0.72) 0%,
+    rgba(17, 17, 17, 0.35) 55%,
+    rgba(17, 17, 17, 0) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  color: var(--text-white);
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.16);
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.accent {
+  color: var(--red-100);    /* 어두운 배경에서 잘 보이는 연한 레드 */
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: var(--text-white);
+}
+
+/* 프로필 카드: 패널 오른쪽 아래에 떠 있는 흰색 카드 */
+.profile-card {
+  position: absolute;
+  z-index: 2;
+  right: 40px;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px 14px 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--text-white);
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.profile-role {
+  font-size: 0.875rem;
+  color: var(--text-second);
+  line-height: 1.4;
+}
+
+/* ==========================================================
+   7. About Me (이미지 왼쪽 · 글 오른쪽)
+   ========================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.tag-list li {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background-color: var(--red-50);
+  color: var(--red-800);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.about-text p {
+  font-size: 1.0625rem;
+  color: var(--text-sub);
+}
+
+/* ==========================================================
+   8. My Interests (카드 3개 · 위에 이미지)
+   ========================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--red-50);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;     /* 16 : 9 비율 고정 */
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-sub);
+}
+
+/* ==========================================================
+   9. My Goals (목록 왼쪽 · 이미지 오른쪽)
+   ========================================================== */
+.goal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.goal-list {
+  list-style: none;
+  border-top: 1px solid var(--red-100);
+}
+
+.goal-list li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--red-100);
+}
+
+/* 번호 원형 배지 */
+.goal-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.goal-list p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* ==========================================================
+   10. 푸터
+   ========================================================== */
+.footer {
+  margin-top: var(--section-space);
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-second);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   11. 태블릿 (가로 900px 이하)
+   ========================================================== */
+@media (max-width: 900px) {
+  .hero-panel {
+    min-height: 560px;
+    padding: 56px 40px 150px;   /* 아래쪽 여백: 프로필 카드 자리 */
+  }
+
+  .about-grid,
+  .goal-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ==========================================================
+   12. 모바일 (가로 600px 이하)
+   ========================================================== */
+@media (max-width: 600px) {
+  :root {
+    --section-space: 88px;
+    --radius-xl: 24px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero-panel {
+    min-height: 580px;
+    padding: 44px 28px 140px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0.25) 0%,
+      rgba(17, 17, 17, 0.7) 100%
+    );
+  }
+
+  .btn-group {
+    margin-top: 28px;
+  }
+
+  .profile-card {
+    right: 20px;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .section-title {
+    margin-bottom: 32px;
+  }
+
+  .tag-list {
+    justify-content: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+  }
+
+  .goal-list li {
+    padding: 20px 0;
+  }
+}
+
+/* ==========================================================
+   13. 움직임을 줄이기로 설정한 사용자를 위한 배려
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .nav-links a,
+  .btn {
+    transition: none;
+  }
+}

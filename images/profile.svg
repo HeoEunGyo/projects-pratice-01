@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <!-- 임시 프로필 이미지 (4:5 비율). 나중에 내 사진 파일로 교체하세요. -->
+  <!-- 배경 -->
+  <rect width="400" height="500" fill="#FFEBEE"/>
+  <!-- 머리 -->
+  <circle cx="200" cy="190" r="72" fill="#EF9A9A"/>
+  <!-- 어깨 -->
+  <ellipse cx="200" cy="500" rx="150" ry="150" fill="#EF9A9A"/>
+</svg>
